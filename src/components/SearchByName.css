@@ -1,0 +1,68 @@
+.search-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  border-radius: 2rem;
+}
+
+.search-container {
+  width: 80%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+.input-submit {
+  margin: auto;
+}
+
+.input-field {
+  width: 80%;
+  padding: 0.5em 1em;
+  font-family: cursive;
+  font-size: 1.1rem;
+  border: 5px solid transparent;
+  border-radius: 2rem;
+  background: linear-gradient(rgb(230, 230, 208) 0 0) padding-box,
+    linear-gradient(to right, #9c20aa, #e8bf08) border-box;
+}
+
+#submit-button {
+  width: 90%;
+  font-family: cursive;
+  font-size: 1.1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 231, 161),
+    rgb(243, 245, 246)
+  );
+  border-radius: 1rem;
+  color: rgb(23, 26, 31);
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin: 1rem;
+  transition: transform 0.5s;
+}
+
+.submit-button:hover {
+  transform: scale(1.1);
+  background-image: linear-gradient(
+    to right,
+    rgb(41, 5, 63),
+    rgb(169, 112, 179)
+  );
+  color: rgb(246, 243, 243);
+}
+
+.all-cocktails-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-container {
+    max-width: 550px;
+  }
+}

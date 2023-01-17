@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Gideon+Roman&family=Merriweather:ital,wght@0,300;1,300&family=Playfair+Display:wght@500&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+
+body {
+  margin: 0;
+  font-family: "EB Garamond", serif;
+  font-size: 1.1rem;
+  /* font-family: "Comfortaa", cursive; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(30, 3, 41);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

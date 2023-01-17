@@ -1,0 +1,63 @@
+.cocktail-container {
+  background-color: rgb(230, 225, 208);
+  width: 85%;
+  margin: 1rem;
+  border-radius: 2rem;
+  transition: transform 0.5s;
+}
+
+.cocktail-container:hover {
+  transform: scale(1.1);
+}
+img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.category-alcoholic-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-alcoholic-item {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  padding: 0.5em 0.2em;
+  border: 5px solid transparent;
+  border-radius: 2rem;
+  background: linear-gradient(rgb(230, 230, 208) 0 0) padding-box,
+    linear-gradient(to right, #9c20aa, #e8bf08) border-box;
+  color: #0e0e15;
+}
+
+.button-card-result {
+  width: 100%;
+  font-family: cursive;
+  font-size: 1.1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(41, 5, 63),
+    rgb(169, 112, 179)
+  );
+  border-radius: 1rem;
+  color: rgb(203, 212, 222);
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.button-card-result:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 231, 161),
+    rgb(243, 245, 246)
+  );
+  color: black;
+}
+@media only screen and (min-width: 768px) {
+  .cocktail-container {
+    max-width: 350px;
+  }
+}

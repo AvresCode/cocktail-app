@@ -1,0 +1,76 @@
+.home-container {
+  width: 85%;
+  margin: auto;
+  border-radius: 2rem;
+}
+
+#top-section {
+  color: white;
+  margin-top: 5rem;
+}
+
+p {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.random-cocktail-container {
+  background: linear-gradient(
+    to bottom right,
+    rgb(246, 245, 245),
+    rgb(147, 114, 16)
+  );
+  width: 75%;
+  margin: 3rem auto;
+  padding: 3rem;
+  transition: transform 0.5s;
+}
+
+.random-cocktail-container:hover {
+  transform: scale(1.1);
+}
+
+img {
+  border-radius: 2rem;
+  width: 400px;
+}
+
+.button-details {
+  width: 85%;
+  font-family: cursive;
+  font-size: 1rem;
+  border-radius: 1rem;
+  color: rgb(7, 8, 9);
+  padding: 0.5em 1em;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    rgb(41, 5, 63),
+    rgb(169, 112, 179)
+  );
+  color: aliceblue;
+  transition: transform 0.3s;
+}
+
+.button-details:hover {
+  transform: scale(1.1);
+  background-image: linear-gradient(
+    to right,
+    rgb(245, 231, 161),
+    rgb(243, 245, 246)
+  );
+  color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .home-container {
+    width: 60%;
+  }
+  .random-cocktail-container {
+    width: "45%";
+  }
+  .button-details {
+    width: 65%;
+  }
+}

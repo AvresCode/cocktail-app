@@ -1,0 +1,25 @@
+.navbar-container {
+  padding: 0 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(30, 3, 41);
+  height: 5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.nav-link {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  background-color: rgb(57, 37, 74);
+}
