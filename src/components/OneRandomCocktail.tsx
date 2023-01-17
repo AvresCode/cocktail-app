@@ -13,26 +13,23 @@ export const OneRandomCocktail = () => {
   }, []);
 
   if (error) {
-    console.log(error.message);
-  } else if (loading) {
-    <div> ...Loading</div>;
+    return console.log(error);
   }
-
-  const cocktail = randomCocktail && randomCocktail[0];
-
-  const { idDrink, strDrink, strDrinkThumb } = cocktail;
+  if (loading) {
+    return <div> ...Loading</div>;
+  }
 
   return (
     <div className="home-container">
       <h1 id="top-section"> Welcome! </h1>{" "}
       <p> Here is a random cocktail for you! </p>
       h3
-      {cocktail && (
+      {randomCocktail && (
         <div className="random-cocktail-container">
           {" "}
-          <h3>{strDrink}</h3>
-          <img src={strDrinkThumb} alt="" />{" "}
-          <Link to={`/cocktails/${idDrink}`}>
+          <h3>{randomCocktail.strDrink}</h3>
+          <img src={randomCocktail.strDrinkThumb} alt="" />{" "}
+          <Link to={`/cocktails/${randomCocktail.idDrink}`}>
             {" "}
             <button className="button-details"> Check details!</button>
           </Link>
