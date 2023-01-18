@@ -1,12 +1,14 @@
 import "./CocktailCardSearch.css";
 import { Link } from "react-router-dom";
+import { APICocktail } from "../types/APItype";
+
 export const CocktailCardSearch = ({
   idDrink,
   strDrink,
   strCategory,
   strAlcoholic,
   strDrinkThumb,
-}) => {
+}: APICocktail) => {
   return (
     <div className="cocktail-container">
       <div>
