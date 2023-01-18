@@ -1,5 +1,16 @@
 import "./CocktailCard.css";
 
+interface Iprops {
+  strDrink: string;
+  strDrinkThumb: string;
+  strCategory: string;
+  strAlcoholic: string;
+  strInstructions: string | null;
+  ingredientsWithMeasures:
+    | [string | null, string | null | undefined][]
+    | undefined;
+}
+
 export const CocktailCard = ({
   strDrink,
   strDrinkThumb,
@@ -7,7 +18,7 @@ export const CocktailCard = ({
   strAlcoholic,
   strInstructions,
   ingredientsWithMeasures,
-}) => {
+}: Iprops) => {
   return (
     <div className="cocktail-card">
       {" "}

@@ -23,7 +23,7 @@ export const CocktailById = () => {
   const cocktailArray: Array<[string, string | null]> | null =
     oneCocktail && Object.entries(oneCocktail);
 
-  const ingredientsArray = cocktailArray
+  const ingredientsArray: Array<string | null> | undefined = cocktailArray
     ?.filter(
       ([first, second]) =>
         first.startsWith("strIngredient") && second && second.trim()
@@ -31,14 +31,16 @@ export const CocktailById = () => {
 
     .map(([first, second]) => second);
 
-  const measuresArray = cocktailArray
+  const measuresArray: Array<string | null> | undefined = cocktailArray
     ?.filter(
       ([first, second]) =>
         first.startsWith("strMeasure") && second && second.trim()
     )
     .map(([first, second]) => second);
 
-  const ingredientsWithMeasures = ingredientsArray?.map((value, index) => [
+  const ingredientsWithMeasures:
+    | Array<[string | null, string | null | undefined]>
+    | undefined = ingredientsArray?.map((value, index) => [
     value,
     measuresArray?.[index],
   ]);
