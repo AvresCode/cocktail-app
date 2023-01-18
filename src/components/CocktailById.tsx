@@ -13,9 +13,11 @@ export const CocktailById = () => {
   }, []);
 
   if (error) {
-    console.log(error);
-  } else if (loading) {
-    <div> ...Loading</div>;
+    return console.log(error);
+  }
+
+  if (loading) {
+    return <div> ...Loading</div>;
   }
 
   const cocktailArray: Array<[string, string | null]> | null =
