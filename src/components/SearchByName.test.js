@@ -1,18 +1,10 @@
-import {
-  render,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, act, waitFor } from "@testing-library/react";
 import { SearchByName } from "./SearchByName";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-
-//import axios from 'axios';
 
 const mockData = {
   drinks: [

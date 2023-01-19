@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { useGetCocktailsByName } from "../hooks/useGetCocktailsByName";
 import { CocktailCardSearch } from "./CocktailCardSearch";
 
-export const SearchByName = () => {
-  const { error, loading, cocktailName, getCocktailsByName } =
-    useGetCocktailsByName();
+export const SearchByName = (): JSX.Element => {
+  const { loading, cocktailName, getCocktailsByName } = useGetCocktailsByName();
 
   const [search, setSearch] = useState<string>("");
 
@@ -14,10 +13,6 @@ export const SearchByName = () => {
     getCocktailsByName(search);
     setSearch("");
   };
-
-  if (error) {
-    return console.log(error);
-  }
 
   if (loading) {
     return <div> ...Loading</div>;

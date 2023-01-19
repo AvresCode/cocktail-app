@@ -1,20 +1,16 @@
 import { useGetRandomCocktail } from "../hooks/useGetRandomCocktail";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./OneRandomCocktail.css";
 
-export const OneRandomCocktail = () => {
-  const { error, loading, randomCocktail, getRandomCocktail } =
-    useGetRandomCocktail();
+export const OneRandomCocktail = (): JSX.Element => {
+  const { loading, randomCocktail, getRandomCocktail } = useGetRandomCocktail();
 
   useEffect(() => {
     getRandomCocktail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (error) {
-    return console.log(error);
-  }
   if (loading) {
     return <div> ...Loading</div>;
   }

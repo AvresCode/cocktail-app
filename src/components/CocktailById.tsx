@@ -3,18 +3,14 @@ import { useEffect } from "react";
 import { useGetCocktailById } from "../hooks/useGetCocktailById";
 import { CocktailCard } from "./CocktailCard";
 
-export const CocktailById = () => {
-  const { error, loading, oneCocktail, getOneCocktail } = useGetCocktailById();
+export const CocktailById = (): JSX.Element => {
+  const { loading, oneCocktail, getOneCocktail } = useGetCocktailById();
   const { id } = useParams<string>();
 
   useEffect(() => {
     getOneCocktail(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  if (error) {
-    return console.log(error);
-  }
 
   if (loading) {
     return <div> ...Loading</div>;
