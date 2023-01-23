@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Search page", () => {
+describe("Homepage", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
   });
