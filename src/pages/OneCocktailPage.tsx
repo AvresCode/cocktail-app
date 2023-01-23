@@ -1,6 +1,6 @@
 import { CocktailById } from "../components/CocktailById";
 
-export const OneCocktailPage = () => {
+export const OneCocktailPage = (): JSX.Element => {
   return (
     <div>
       <CocktailById />

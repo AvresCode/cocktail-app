@@ -1,18 +1,22 @@
 import "./SearchByName.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useGetCocktailsByName } from "../hooks/useGetCocktailsByName";
 import { CocktailCardSearch } from "./CocktailCardSearch";
 
-export const SearchByName = () => {
-  const { cocktailName, getCocktailsByName } = useGetCocktailsByName();
+export const SearchByName = (): JSX.Element => {
+  const { loading, cocktailName, getCocktailsByName } = useGetCocktailsByName();
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     getCocktailsByName(search);
     setSearch("");
   };
+
+  if (loading) {
+    return <div> ...Loading</div>;
+  }
 
   return (
     <div className="search-page-container">

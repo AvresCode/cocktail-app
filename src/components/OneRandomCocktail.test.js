@@ -1,11 +1,9 @@
-import { render, screen, act, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { OneRandomCocktail } from "./OneRandomCocktail";
 import { MemoryRouter } from "react-router-dom";
 
 import { rest } from "msw";
-import { setupServer, SetupServerApi } from "msw/node";
-
-//import axios from 'axios';
+import { setupServer } from "msw/node";
 
 const mockData = {
   drinks: [
