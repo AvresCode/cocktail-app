@@ -61,6 +61,10 @@
   align-items: center;
 }
 
+.no-result-container {
+  color: antiquewhite;
+}
+
 @media only screen and (min-width: 768px) {
   .search-container {
     max-width: 550px;

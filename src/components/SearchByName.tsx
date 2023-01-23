@@ -39,10 +39,17 @@ export const SearchByName = (): JSX.Element => {
         </div>
       </form>
       <div className="all-cocktails-container">
-        {cocktailName &&
+        {cocktailName === null ? (
+          <div>
+            {" "}
+            <h1 className="no-result-container"> Oops! Nothing found!</h1>{" "}
+            <p>Search another cocktail</p>
+          </div>
+        ) : (
           cocktailName.map((coc) => (
             <CocktailCardSearch {...coc} key={coc.idDrink} />
-          ))}
+          ))
+        )}
       </div>
     </div>
   );
