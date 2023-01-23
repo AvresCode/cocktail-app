@@ -17,7 +17,7 @@ export const OneRandomCocktail = (): JSX.Element => {
 
   return (
     <div className="home-container">
-      <h1 id="top-section"> Welcome! </h1>{" "}
+      <h1 id="top-section">Welcome!</h1>{" "}
       <p> Here is a random cocktail for you! </p>
       h3
       {randomCocktail && (

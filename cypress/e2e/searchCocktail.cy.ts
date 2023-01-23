@@ -20,4 +20,9 @@ describe("Search page", () => {
     cy.contains("Submit").click();
     cy.get(".no-result-container").should("have.text", "Oops! Nothing found!");
   });
+
+  it("Navigate to homepage", () => {
+    cy.get('[href="/"]').click();
+    cy.get("#top-section").should("have.text", "Welcome!");
+  });
 });
