@@ -46,7 +46,8 @@ export const SearchByName = (): JSX.Element => {
             <p>Search another cocktail</p>
           </div>
         ) : (
-          cocktailName.map((coc) => (
+          cocktailName &&
+          cocktailName?.map((coc) => (
             <CocktailCardSearch {...coc} key={coc.idDrink} />
           ))
         )}
