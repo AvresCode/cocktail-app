@@ -1,7 +1,8 @@
-import { useParams } from "react-router";
-import { useEffect } from "react";
-import { useGetCocktailById } from "../hooks/useGetCocktailById";
-import { CocktailCard } from "./CocktailCard";
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import { useGetCocktailById } from '../hooks/useGetCocktailById';
+import { CocktailCard } from './CocktailCard';
+import IngredientsList from '../utils/IngredientsList';
 
 export const CocktailById = (): JSX.Element => {
   const { loading, oneCocktail, getOneCocktail } = useGetCocktailById();
@@ -12,34 +13,13 @@ export const CocktailById = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const ingredientsWithMeasures = oneCocktail
+    ? IngredientsList(oneCocktail)
+    : [];
+
   if (loading) {
     return <div> ...Loading</div>;
   }
-
-  const cocktailArray: Array<[string, string | null]> | null =
-    oneCocktail && Object.entries(oneCocktail);
-
-  const ingredientsArray: Array<string | null> | undefined = cocktailArray
-    ?.filter(
-      ([first, second]) =>
-        first.startsWith("strIngredient") && second && second.trim()
-    )
-
-    .map(([first, second]) => second);
-
-  const measuresArray: Array<string | null> | undefined = cocktailArray
-    ?.filter(
-      ([first, second]) =>
-        first.startsWith("strMeasure") && second && second.trim()
-    )
-    .map(([first, second]) => second);
-
-  const ingredientsWithMeasures:
-    | Array<[string | null, string | null | undefined]>
-    | undefined = ingredientsArray?.map((value, index) => [
-    value,
-    measuresArray?.[index],
-  ]);
 
   return (
     <div>
