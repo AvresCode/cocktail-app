@@ -7,7 +7,7 @@ const IngredientsList = (
   const cocktailArray: Array<[string | null, string | null]> =
     Object.entries(cocktail);
 
-  const ingredientsArray: Array<string | null> = cocktailArray
+  const getIngredientsArray: Array<string | null> = cocktailArray
     ?.filter(
       ([ingredient, value]) =>
         ingredient?.startsWith('strIngredient') && value && value.trim(),
@@ -15,17 +15,20 @@ const IngredientsList = (
 
     .map(([ingredient, value]) => value);
 
-  const measuresArray: Array<string | null> = cocktailArray
+  const getMeasuresArray: Array<string | null> = cocktailArray
     ?.filter(
       ([measure, value]) =>
         measure?.startsWith('strMeasure') && value && value.trim(),
     )
     .map(([measure, value]) => value);
 
-  const ingredientsWithMeasures: Array<[string | null, string | null]> =
-    ingredientsArray?.map((value, index) => [value, measuresArray?.[index]]);
+  const getIngredientsWithMeasures: Array<[string | null, string | null]> =
+    getIngredientsArray?.map((value, index) => [
+      value,
+      getMeasuresArray?.[index],
+    ]);
 
-  return ingredientsWithMeasures;
+  return getIngredientsWithMeasures;
 };
 
 export default IngredientsList;
