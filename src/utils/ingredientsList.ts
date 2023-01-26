@@ -1,7 +1,6 @@
-import React from 'react';
 import { APICocktail } from '../types/APItype';
 
-const IngredientsList = (
+export const getIngredientsList = (
   cocktail: APICocktail,
 ): Array<[string | null, string | null]> => {
   const cocktailArray: Array<[string | null, string | null]> =
@@ -30,5 +29,3 @@ const IngredientsList = (
 
   return getIngredientsWithMeasures;
 };
-
-export default IngredientsList;

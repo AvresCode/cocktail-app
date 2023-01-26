@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useGetCocktailById } from '../hooks/useGetCocktailById';
 import { CocktailCard } from './CocktailCard';
-import IngredientsList from '../utils/IngredientsList';
+import { getIngredientsList } from '../utils/ingredientsList';
 
 export const CocktailById = (): JSX.Element => {
   const { loading, oneCocktail, getOneCocktail } = useGetCocktailById();
@@ -14,7 +14,7 @@ export const CocktailById = (): JSX.Element => {
   }, []);
 
   const ingredientsWithMeasures = oneCocktail
-    ? IngredientsList(oneCocktail)
+    ? getIngredientsList(oneCocktail)
     : [];
 
   if (loading) {
