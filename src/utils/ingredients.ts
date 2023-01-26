@@ -3,10 +3,10 @@ import { APICocktail } from '../types/APItype';
 export const getIngredientsList = (
   cocktail: APICocktail,
 ): Array<[string | null, string | null]> => {
-  const cocktailArray: Array<[string | null, string | null]> =
+  const cocktailProps: Array<[string | null, string | null]> =
     Object.entries(cocktail);
 
-  const getIngredientsArray: Array<string | null> = cocktailArray
+  const ingredients: Array<string | null> = cocktailProps
     ?.filter(
       ([ingredient, value]) =>
         ingredient?.startsWith('strIngredient') && value && value.trim(),
@@ -14,18 +14,12 @@ export const getIngredientsList = (
 
     .map(([ingredient, value]) => value);
 
-  const getMeasuresArray: Array<string | null> = cocktailArray
+  const measures: Array<string | null> = cocktailProps
     ?.filter(
       ([measure, value]) =>
         measure?.startsWith('strMeasure') && value && value.trim(),
     )
     .map(([measure, value]) => value);
 
-  const getIngredientsWithMeasures: Array<[string | null, string | null]> =
-    getIngredientsArray?.map((value, index) => [
-      value,
-      getMeasuresArray?.[index],
-    ]);
-
-  return getIngredientsWithMeasures;
+  return ingredients?.map((value, index) => [value, measures?.[index]]);
 };

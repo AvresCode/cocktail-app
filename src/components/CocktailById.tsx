@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useGetCocktailById } from '../hooks/useGetCocktailById';
 import { CocktailCard } from './CocktailCard';
-import { getIngredientsList } from '../utils/ingredientsList';
+import { getIngredientsList } from '../utils/ingredients';
 
 export const CocktailById = (): JSX.Element => {
   const { loading, oneCocktail, getOneCocktail } = useGetCocktailById();
