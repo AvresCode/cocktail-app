@@ -4,7 +4,9 @@ import { APICocktail, APIResponse } from "../types/APItype";
 
 export const useGetCocktailsByName = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [cocktailName, setCocktailName] = useState<APICocktail[] | null>(null);
+  const [cocktailName, setCocktailName] = useState<
+    APICocktail[] | null | undefined
+  >(undefined);
   const [error, setError] = useState<string | null>(null);
 
   const getCocktailsByName = async (name: string) => {
