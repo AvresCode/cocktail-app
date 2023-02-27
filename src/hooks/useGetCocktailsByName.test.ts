@@ -20,7 +20,15 @@ describe('useGetCocktailsByName', () => {
     jest.clearAllMocks();
   });
 
-  it('should set loading to true when getCocktailsByName is called', async () => {
+it('should return the correct initial state', () => {
+  const { result } = renderHook(() => useGetCocktailsByName());
+
+  expect(result.current.error).toBeNull();
+  expect(result.current.loading).toBe(false);
+  expect(result.current.cocktailName).toBeUndefined();
+});
+
+  it('should fetch cocktail by name correctly', async () => {
     (axios.get as jest.Mock).mockResolvedValue(mockResponse);
     const { result, waitForNextUpdate } = renderHook(() =>
       useGetCocktailsByName(),
@@ -30,28 +38,16 @@ describe('useGetCocktailsByName', () => {
       result.current.getCocktailsByName('Margarita');
     });
 
-    expect(result.current.loading).toBe(true);
-
-    await waitForNextUpdate();
-  });
-
-  it('should set loading to false and cocktailName to an array of cocktails when getCocktailsByName succeeds', async () => {
-    (axios.get as jest.Mock).mockResolvedValue(mockResponse);
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useGetCocktailsByName(),
-    );
-
-    act(() => {
-      result.current.getCocktailsByName('Margarita');
-    });
+     expect(result.current.loading).toBe(true);
 
     await waitForNextUpdate();
 
     expect(result.current.loading).toBe(false);
+    expect(result.current.error).toBeNull();
     expect(result.current.cocktailName).toEqual([mockCocktail]);
   });
 
-  it('should set loading to false and error to a string when getCocktailsByName fails', async () => {
+  it('should set loading to false and handle error when getCocktailsByName fails', async () => {
     const errorMessage = 'Request failed with status code 404';
     (axios.get as jest.Mock).mockRejectedValue(new Error(errorMessage));
     const { result, waitForNextUpdate } = renderHook(() =>
@@ -66,5 +62,6 @@ describe('useGetCocktailsByName', () => {
 
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBe(errorMessage);
+    expect(result.current.cocktailName).toBeUndefined();
   });
 });
