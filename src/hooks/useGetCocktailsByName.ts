@@ -14,16 +14,18 @@ export const useGetCocktailsByName = () => {
     setError(null);
     try {
       const response = await axios.get<APIResponse>(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`,
       );
       const cocktails = response.data.drinks;
       setCocktailName(cocktails);
-      setLoading(false);
+      
     } catch (e) {
       if (e instanceof Error) {
         console.log(e.message);
         setError(e.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
   return { loading, error, cocktailName, getCocktailsByName };
