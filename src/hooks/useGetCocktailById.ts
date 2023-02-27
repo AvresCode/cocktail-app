@@ -12,7 +12,7 @@ export const useGetCocktailById = () => {
     setError(null);
     try {
       const response = await axios.get<APIResponse>(
-        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
       );
       const oneCocktail = response.data.drinks?.[0] || null;
       setOneCocktail(oneCocktail);
@@ -22,6 +22,8 @@ export const useGetCocktailById = () => {
         console.error(e.message);
         setError(e.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
