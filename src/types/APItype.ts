@@ -10,7 +10,9 @@ export type APICocktail = {
   strAlcoholic: string;
   strInstructions: string;
   strIngredient1: string;
-  strIngredient2: null;
+  strIngredient2: string;
+  strIngredient3: null;
   strMeasure1: string;
-  strMeasure2: null;
+  strMeasure2: string;
+  strMeasure3: null;
 };
